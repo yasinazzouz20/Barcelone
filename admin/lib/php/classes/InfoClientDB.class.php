@@ -12,7 +12,7 @@ class InfoClientDB extends InfoClient {
     public function getInfoClient($page) {
 
         try {
-            $query = "select * from GT_TEXTE where page =:page";
+            $query = "select * from TEXTE where page =:page";
             $resultset = $this->_db->prepare($query);
             $resultset->bindValue(':page', $page, PDO::PARAM_STR);
             $resultset->execute();
@@ -22,7 +22,7 @@ class InfoClientDB extends InfoClient {
                 
             }
 
-            //var_dump($data);
+           
             return $_infoArray;
         } catch (PDOException $e) {
 

@@ -1,7 +1,7 @@
 
 <?php
 $info = new InfoClientDB($cnx);
-$texte = $info-> getInfoClient("accueil");
+
 ?>
 
 <div class="row">

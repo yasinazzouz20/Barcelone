@@ -27,7 +27,7 @@ class InfoClient {
          $this->_attributs_de_bd[$nom] = $valeur;
     }
     
-    public function faireQqchose() {
+   /* public function faireQqchose() {
         print "";
-    }
+    }*/
 }
