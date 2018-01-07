@@ -8,7 +8,7 @@ class Vue_entreeDB {
     
     function getVue_entreeType($id){
          try {            
-            $query = "SELECT * FROM VUE_ENTREE where id_type_entree=:id_type_entree";
+            $query = "SELECT * FROM VUE_ENTREE where ID_TYPE_ENTREE=:id_type_entree";
             $resultset = $this->_db->prepare($query);  
             $resultset->bindValue(':id_type_entree',$id);
             $resultset->execute();
@@ -32,7 +32,7 @@ class Vue_entreeDB {
 
     function getVue_(){
          try {
-            $query = "SELECT * FROM VUE_ENTREE order by type_match,nom_match";
+            $query = "SELECT * FROM VUE_ENTREE order by TYPE_MATCH,NOM_MATCH";
             $resultset = $this->_db->prepare($query);  
             $resultset->execute();
             $data = $resultset->fetchAll();
@@ -54,7 +54,7 @@ class Vue_entreeDB {
     
     function getVue_entree($id){
          try {            
-            $query = "SELECT * FROM VUE_ENTREE where id_entree=:id_entree";
+            $query = "SELECT * FROM VUE_ENTREE where ID_ENTREE=:id_entree";
             $resultset = $this->_db->prepare($query);  
             $resultset->bindValue(':id_entree',$id);
             $resultset->execute();

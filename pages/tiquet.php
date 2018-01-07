@@ -1,3 +1,5 @@
+
+<h2 id="titres">Le guichet en ligne du FC BARCELONE !</h2><br /><br />
 <?php
 
 $types = new Type_entreeDB($cnx);
@@ -5,10 +7,8 @@ $tabTypes = $types->getType_entree();
 $nbrTypes = count($tabTypes);
 
 if(isset($_GET['choix_type'])){
-    print $_GET['id_type_entree'];
     $cake = new Vue_entreeDB($cnx);
     $liste = $cake->getVue_entreeType($_GET['id_type_entree']);
-    //var_dump($liste);
     $nbrCakes = count($liste);
 }    
 ?>
@@ -26,7 +26,7 @@ if(isset($_GET['choix_type'])){
                 <?php
                     for($i=0;$i<$nbrTypes;$i++){
                 ?>
-                <option value="<?php print $tabTypes[$i]->id_type_entree;  ?>"><?php print utf8_decode($tabTypes[$i]->type_entree);  ?></option>
+                <option value="<?php print $tabTypes[$i]->ID_TYPE_ENTREE;  ?>"><?php print utf8_decode($tabTypes[$i]->TYPE_MATCH);  ?></option>
                 <?php
                     
                 
@@ -55,7 +55,7 @@ if(isset($_GET['choix_type'])){
                 <div class="col-sm-12 ">
    
                          <h6 id="taitres">RAPPEL DU GENRE DE PRODUIT SELECTIONNE :</h6>  
-                         <h6 id="traitres"><?php print $liste[0]['type_match'];?></h6>
+                         <h6 id="traitres"><?php print $liste[0]['TYPE_MATCH'];?></h6>
                              
    
                          <br/><br/><br/>
@@ -77,14 +77,15 @@ if(isset($_GET['choix_type'])){
                         
                             
                                 
-                                    <h3 id="boxeurs"><?php print $liste[$i]['nom_match'];?></h3><br/>               
-                                    <h5 id="boxeurs"><?php print $liste[$i]['prix_unitaire'];?>$</h5><br/> 
+                                    <h3 id="boxeurs"><?php print $liste[$i]['NOM_MATCH'];?></h3><br/>               
+                                    <h5 id="boxeurs"><?php print $liste[$i]['PRIX_UNITAIRE'];?>$</h5><br/> 
                                                          
                         
                         
                            
                                 <br/>
-                                    <a href="index.php?page=commande.php&id=<?php print $liste[$i]['id_entree'] ?>"/>
+                                    <a href="index.php?page=commande&id=<?php print $liste[$i]['ID_ENTREE'] ?>"/>
+                                    
                                         Commander
                                     </a>    
                                 <br/>

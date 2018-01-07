@@ -11,7 +11,7 @@
  *
  * @author HP
  */
-class ClientDB extends Client {
+class SocioDB extends Socio {
 
     private $_db;
     private $_clientArray = array();
@@ -45,8 +45,8 @@ class ClientDB extends Client {
 //en commentaire : appel d'une fonction plpgsql stockée dans Postgresql, avec récupération
 //de la valeur retournée
         
-        $query = "insert into socio (NOM_CLIENT,PRENOM_CLIENT,EMAIL_CLIENT,TELEPHONE,NUMERO_IDENTITE)"
-                . " values (:nom_client,:prenom_client,:email_client,:telephone,:numero)";
+        $query = "insert into socio (NOM_CLIENT,PRENOM_CLIENT,EMAIL_CLIENT,TELEPHONE,ID)"
+                . " values (:nom_client,:prenom_client,:email_client,:telephone,id)";
 
         try {
             $resultset = $this->_db->prepare($query);
@@ -54,7 +54,7 @@ class ClientDB extends Client {
             $resultset->bindValue(':prenom_client', $data['prenom'], PDO::PARAM_STR);
             $resultset->bindValue(':email_client', $data['email1'], PDO::PARAM_STR);
             $resultset->bindValue(':telephone', $data['telephone'], PDO::PARAM_STR);
-            $resultset->bindValue(':numero', $data['numero'], PDO::PARAM_STR);
+            $resultset->bindValue(':id',$data['id'], PDO::PARAM_INT);
             $resultset->execute();
             //$retour = $resultset->fetchColumn(0);
             //return $retour;

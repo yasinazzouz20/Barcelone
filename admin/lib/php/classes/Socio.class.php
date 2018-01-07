@@ -1,7 +1,7 @@
 
 <?php
 
-class Client {
+class Socio {
     private $_attributs = array();
 
     public function __construct(array $data) {

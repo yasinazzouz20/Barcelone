@@ -1,17 +1,17 @@
 <h2>Commande</h2>
 <?php
 //si aucun id de gateau dans url
-if (!isset($_GET['id']) && !isset($_SESSION['ID_COMMANDE'])) {
+if (!isset($_GET['id']) && !isset($_SESSION['id_commande'])) {
     ?>
     <p><h4 id="txtw">Pour commander, Rendez-sur notre page Catalogue <input type="button" class="btn" id="ici" value="ICI" onclick="document.location.href='http://localhost/barcelone/index.php?page=tiquet';" /></h4></p>
     <?php
 } else if(isset ($_GET['id'])) {
     //on vient de la page produit
-    $_SESSION['ID_COMMANDE'] = $_GET['id'];
+    $_SESSION['id_commande'] = $_GET['id'];
 }
-if(isset($_SESSION['ID_COMMANDE'])){
-    $foot = new Vue_GateauDB($cnx);
-    $liste = $foot ->getVue_gateauProduit($_SESSION['id_commande']);
+if(isset($_SESSION['id_commande'])){
+    $cake = new Vue_entreeDB($cnx);
+    $liste = $cake ->getVue_entree($_SESSION['id_commande']);
     
     
     
@@ -21,14 +21,14 @@ if(isset($_SESSION['ID_COMMANDE'])){
         //ecriture
         //var_dump($_GET);
         extract($_GET, EXTR_OVERWRITE);
-       if (empty($email1) || empty($email2)||empty($password) || empty($nom) || empty($prenom)||empty($telephone) || empty($adresse) || empty($numero)||empty($codepostal)||empty($localite)) {
+       if (empty($email1) || empty($email2) || empty($nom) || empty($prenom)||empty($telephone) ) {
             print "Vide";
         }
             //$erreur = "Veuillez remplir tous les champs";
         
         else{
             //$erreur="";
-            $client = new ClientDB($cnx);
+            $client = new SocioDB($cnx);
             $client->addClient($_GET);
         }
     }
@@ -36,11 +36,11 @@ if(isset($_SESSION['ID_COMMANDE'])){
     <div class="row">
         
         <div class ="col-sm-4">
-            <img src="./admin/images/<?php print $liste [0]['IMAGE'];?>" alt="Gateau"/>
+            <img src="./admin/images/<?php print $liste [0]['IMAGE'];?>" alt="barca"/>
             
         </div>
         <div class="col-sm-5">
-            <br/><?php print $liste[0]['NOM_GATEAU'];?>
+            <br/><?php print $liste[0]['NOM_MATCH'];?>
             <br/><br/>
             <?php print $liste[0]['PRIX_UNITAIRE'];?> &euro;
         </div>
@@ -80,12 +80,7 @@ if(isset($_SESSION['ID_COMMANDE'])){
                     <input type="email" id="email2" name="email2" placeholder="aaa@aaa.aa"/>
                 </div>
             </div> 
-            <div class="row">
-                <div class="col-sm-3"><label for="pasword">Password</label></div>
-                <div class="col-sm-4">
-                    <input type="password" name="password" id="password" />
-                </div>
-            </div>
+           
             <div class="row">
                 <div class="col-sm-3"><label for="nom">Nom</label></div>
                 <div class="col-sm-4">
@@ -105,28 +100,16 @@ if(isset($_SESSION['ID_COMMANDE'])){
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3"><label for="adresse">Adresse</label></div>
-                <div class="col-sm-4">
-                    <input type="text" name="adresse" id="adresse" />
+                    <div class="col-sm-2 txtBleu"><label for="id">Id de l'entree</label></div>
+                    <div class="col-sm-4">
+                        <select name="id" id="id">
+                            <option value="<?php print $liste[0]['ID_ENTREE'] ?>" ><?php print $liste[0]['ID_ENTREE'] ?> </option>
+                            </select>
+                    </div>
                 </div>
-            </div> 
-            <div class="row">
-                <div class="col-sm-3"><label for="numero">Numéro</label></div>
-                <div class="col-sm-4">
-                    <input type="text" name="numero" id="numero" />
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-sm-3"><label for="codepostal">Code postal</label></div>
-                <div class="col-sm-4">
-                    <input type="text" name="codepostal" id="codepostal" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3"><label for="localite">Localité</label></div>
-                <div class="col-sm-4">
-                    <input type="text" name="localite" id="localite" />
-                </div>
+           
+            
+            
             </div>
             <br/>
             <div class="row">
@@ -140,3 +123,4 @@ if(isset($_SESSION['ID_COMMANDE'])){
 
     <?php
 }
+
