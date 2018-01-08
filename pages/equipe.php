@@ -1,4 +1,4 @@
-<h2 id="titres">Boxeurs du Mayweather Boxing Club</h2>
+<h2 id="titres">Joueurs du Futbol Club Barcelone</h2>
 <?php
 
     $cake = new Vue_barcelone($cnx);

@@ -4,7 +4,7 @@ if(isset($_POST['submit_login'])){
     
     $log=new AdminDB($cnx);
     $admin=$log->isAdmin($_POST['login'],$_POST['password']);
-    var_dump($admin);
+   // var_dump($admin);
     if(is_null($admin)){
         $message="<br/> Donn&eacute;es incorrectes";
     }

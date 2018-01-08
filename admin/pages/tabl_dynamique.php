@@ -1,9 +1,9 @@
 
 <h2 id="titre">Tableau dynamique</h2>
-<a href ="../pages/imprimer.php"><img src="../images/pdf.jpg" alt="PDF"/></a>
+<a href ="../admin/pages/imprimer.php"><img src="../admin/images/pdf.jpg" alt="PDF"/></a>
 <?php
 $obj = new Vue_entreeDB($cnx);
-$liste = $obj->getVue_entree();
+$liste = $obj->getVue_();
 $nbrG = count($liste);
 //var_dump($liste);
 ?>
@@ -19,15 +19,15 @@ $nbrG = count($liste);
     for ($i = 0; $i < $nbrG; $i++) {
         ?>
         <tr>
-            <td class="ecart"><?php print $liste[$i]['ID_GT_GATEAU']; ?></td>
-            <td class="ecart"><?php print utf8_encode($liste[$i]['TYPE_GATEAU']); ?></td>
+            <td class="ecart"><?php print $liste[$i]['ID_ENTREE']; ?></td>
+            <td class="ecart"><?php print utf8_encode($liste[$i]['TYPE_MATCH']); ?></td>
             <td>
-<span contenteditable="true" name="nom_gateau" class="ecart" id="<?php print $liste[$i]['ID_GT_GATEAU']; ?>">
-                    <?php print utf8_encode($liste[$i]['NOM_GATEAU']); ?>
+<span contenteditable="true" name="nom_match" class="ecart" id="<?php print $liste[$i]['ID_ENTREE']; ?>">
+                    <?php print utf8_encode($liste[$i]['NOM_MATCH']); ?>
 </span>
             </td>
             <td>
-<span contenteditable="true" name="prix_unitaire" class="ecart" id="<?php print $liste[$i]['ID_GT_GATEAU']; ?>">
+<span contenteditable="true" name="prix_unitaire" class="ecart" id="<?php print $liste[$i]['ID_ENTREE']; ?>">
                 <?php print $liste[$i]['PRIX_UNITAIRE']; ?>
 </span>
             </td>

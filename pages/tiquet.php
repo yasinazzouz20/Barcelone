@@ -1,5 +1,5 @@
 
-<h2 id="titres">Le guichet en ligne du FC BARCELONE !</h2><br /><br />
+<h2 id="titres">Choisissez votre compétition:</h2><br /><br />
 <?php
 
 $types = new Type_entreeDB($cnx);

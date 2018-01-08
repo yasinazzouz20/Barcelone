@@ -12,7 +12,7 @@ class AdminDB extends Admin {
     function isAdmin($login, $password) {
         $password = md5($password);
         try {
-            $query = "select * from ADMINISTARTEUR where LOGIN=:login and MDP=:password";
+            $query = "select * from ADMINISTRATEUR where LOGIN=:login and MDP=:password";
             $resultset = $this->_db->prepare($query);
             $resultset->bindValue(':login', $login);
             $resultset->bindValue(':password', $password);

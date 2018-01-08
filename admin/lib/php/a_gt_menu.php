@@ -1,14 +1,16 @@
 <ul id="menu-accordeon">
    <li>
-       <a href="./index.php?page=accueil_admin.php">Accueil</a>      
+       <a href="./index.php?page=accueil_admin">Accueil</a>      
    </li>
     
     <li>
-        <a href="./index.php?page=tabl_dynamique.php">Nos Matchs</a>  
+        <a href="./index.php?page=tabl_dynamique">Les Matchs</a>  
    </li>
-   <li><a href="./index.php?page=commandes_faites.php">Les matchs</a>
-      
-   </li>
-   <br/>
-        <a href="adm_connect.php"></a>
+  
+   <li>
+        <a href="./index.php?page=tabl_dynamique2">Les joueurs</a>  
+    </li>
+    <li>
+        <a href="./index.php?page=tabl_dynamique3">Afficher tous les joueurs en format pdf</a>  
+    </li>
 </ul>

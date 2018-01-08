@@ -23,6 +23,8 @@ session_start();
 
     </head>
     <body> 
+       
+        
         <div class="container">
             <header>
                 <img src="images/barcelone.jpg" alt="Barca"/>

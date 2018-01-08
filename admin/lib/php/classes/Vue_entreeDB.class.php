@@ -5,7 +5,7 @@ class Vue_entreeDB {
         $this->_db = $_db;
     }
     
-    
+    //afficher toutes les compet
     function getVue_entreeType($id){
          try {            
             $query = "SELECT * FROM VUE_ENTREE where ID_TYPE_ENTREE=:id_type_entree";
@@ -29,7 +29,7 @@ class Vue_entreeDB {
         return $_infoArray;
     }
     
-
+//pour les tableaux dynamiques
     function getVue_(){
          try {
             $query = "SELECT * FROM VUE_ENTREE order by TYPE_MATCH,NOM_MATCH";
@@ -51,10 +51,10 @@ class Vue_entreeDB {
         }
         return $_infoArray;
     }
-    
+    //afficher le match
     function getVue_entree($id){
          try {            
-            $query = "SELECT * FROM VUE_ENTREE where ID_ENTREE=:id_entree";
+            $query = "SELECT * FROM  vue_entree  where ID_ENTREE=:id_entree";
             $resultset = $this->_db->prepare($query);  
             $resultset->bindValue(':id_entree',$id);
             $resultset->execute();

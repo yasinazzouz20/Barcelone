@@ -21,7 +21,7 @@ class SocioDB extends Socio {
     }
 
     public function getClient($email) {
-        $query = "select * from socio where email_client=:email_client";
+        $query = "select * from socio where EMAIL_CLIENT=:email_client";
         try {
             $resultset = $this->_db->prepare($query);
             $resultset->bindValue(':email_client', $email, PDO::PARAM_STR);
@@ -32,7 +32,7 @@ class SocioDB extends Socio {
 
         while ($data = $resultset->fetch()) {
             try {
-                //$_clientArray[] = new Client ($data);
+                //$_clientArray[] = new Socio ($data);
                 $_clientArray[] = $data;
             } catch (PDOException $e) {
                 print $e->getMessage();
@@ -45,14 +45,14 @@ class SocioDB extends Socio {
 //en commentaire : appel d'une fonction plpgsql stockée dans Postgresql, avec récupération
 //de la valeur retournée
         
-        $query = "insert into socio (NOM_CLIENT,PRENOM_CLIENT,EMAIL_CLIENT,TELEPHONE,ID)"
-                . " values (:nom_client,:prenom_client,:email_client,:telephone,id)";
+        $query = "insert into socio (EMAIL_CLIENT,NOM_CLIENT,PRENOM_CLIENT,TELEPHONE,ID)"
+                . " values (:email_client,:nom_client,:prenom_client,:telephone,:id)";
 
         try {
             $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':email_client', $data['email1'], PDO::PARAM_STR);
             $resultset->bindValue(':nom_client', $data['nom'], PDO::PARAM_STR);
             $resultset->bindValue(':prenom_client', $data['prenom'], PDO::PARAM_STR);
-            $resultset->bindValue(':email_client', $data['email1'], PDO::PARAM_STR);
             $resultset->bindValue(':telephone', $data['telephone'], PDO::PARAM_STR);
             $resultset->bindValue(':id',$data['id'], PDO::PARAM_INT);
             $resultset->execute();

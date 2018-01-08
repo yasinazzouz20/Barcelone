@@ -2,12 +2,12 @@
 
 require '../lib/php/dbConnect.php';
 require '../lib/php/classes/Connexion.class.php';
-require '../lib/php/classes/Vue_EntreeDB.class.php';
+require '../lib/php/classes/Vue_entreeDB.class.php';
 
 $cnx =  Connexion::getInstance($dsn, $user, $pass);
 //recup de donees
-$obj = new Vue_GateauDB($cnx);
-$liste = $obj->getVue_gateau();
+$obj = new Vue_entreeDB($cnx);
+$liste = $obj->getVue_();
 $nbrG = count($liste);
 require '../lib/fpdf181/fpdf.php';
 
@@ -16,7 +16,7 @@ $pdf-> setFONT('Arial','B',14);
 $pdf->AddPage();
 $pdf->setX(3);
 
-$pdf->Cell(3.5, 1, utf8_decode('Nos Matchss'),0,0,'L');
+$pdf->Cell(3.5, 1, utf8_decode('Nos Matchs'),0,0,'L');
 //sous-titre
 
 $pdf->SetFillColor(200,10,10);
@@ -35,7 +35,7 @@ $x =3;
 $y =3;
 $pdf->SetXY($x, $y);
 $pdf->SetFont('Arial','B',12);
-$pdf->cell(8,.7, utf8_decode('dénomination'),0,0,'L');
+$pdf->cell(8,.7,'Match',0,0,'L');
 $pdf->SetXY($x + 8,$y);
 $pdf->cell(2,.7, 'Prix',0,0,'L');
 $pdf->cell(5,1, 'Image',0,0,'C');
@@ -46,7 +46,7 @@ $y++;
 for ($i=0;$i<$nbrG;$i++){
     
     $pdf->SetXY($x, $y);//$x et $y valent 3 et 4 resp.
-    $pdf->cell(5,1,$liste[$i]['NOM_GATEAU'],0,0,'C');
+    $pdf->cell(5,1,$liste[$i]['NOM_MATCH'],0,0,'C');
     $pdf->SetXY($x +8, $y);
     $pdf->cell(5,1,$liste[$i]['PRIX_UNITAIRE'],0,0,'C');
     $pdf->Image('../images/'.$liste[$i]['IMAGE'],$x+12,$y,1.5,'JPG');
@@ -58,7 +58,7 @@ for ($i=0;$i<$nbrG;$i++){
         $y = 3;
         $pdf->SetXY($x, $y);
         $pdf->SetFont('Arial', 'B', 12);
-        $den = utf8_decode('Dénomination');
+        $den = utf8_decode('Match');
         $pdf->cell(8, 1, $den, 0, 'C', 1, 1);
         $pdf->SetXY($x + 8, $y);
         $pdf->cell(2, 1, 'Prix', 0, 'C', 1, 1);
