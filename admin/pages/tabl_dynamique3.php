@@ -1,5 +1,5 @@
 
-<h2 id="titre">Tableau dynamique</h2>
+<h2 id="titre">Joueurs de l'équipe</h2>
 <a href ="../admin/pages/imprimer2.php"><img src="../admin/images/pdf.jpg" alt="PDF"/></a>
 <?php
 $obj = new Vue_barcelone($cnx);

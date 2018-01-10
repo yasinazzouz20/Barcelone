@@ -19,5 +19,12 @@ function updateEmployees($query){
     $stmt=$pdo->prepare($query);
     return $stmt->execute();
 }
+function insertEmployees($query){
+    $pdo=getConnection();
+    
+    $stmt=$pdo->prepare($query);
+    return $stmt->execute();
+}
+
 
 ?>

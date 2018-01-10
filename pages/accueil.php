@@ -4,11 +4,9 @@ $info = new InfoClientDB($cnx);
 
 ?>
 
-<div class="row">
-
-    <div class="col-sm-8">
-
-        <div id="gt_carousel" class="carousel slide" data-ride="carousel">
+<div id="admin"class="row">
+    <div class="col-lg-12">
+        <div id="gt_carousel" class="activecarousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="./images/dia1.jpg" alt="First slide">
@@ -26,24 +24,22 @@ $info = new InfoClientDB($cnx);
                     <img class="d-block w-100" src="./images/dia5.jpg" alt="Fifth slide">
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#gt_carousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#gt_carousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
     </div>
-   
-
-</div>
+    </div>
 </br>
 </br>
 <div class="row">
-<div class="col-sm-10">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4RDvQZ_LGw0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+  <h4 id="coutinho" >Coutinho Day</h4>
+<div id="video" class="col-sm-10">
+<iframe width="750" height="415" src="https://www.youtube.com/embed/4RDvQZ_LGw0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 </div>
 </div>

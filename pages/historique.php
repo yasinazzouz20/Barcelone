@@ -5,9 +5,10 @@ $texte = $info->getInfoClient("historique");
 ?>
 
 
-<div class="col-sm-4">
-    <?php
-    print $texte[0]->TEXTE;
-    ?>
-
+<div class="col-sm-10">
+    
+        <?php
+        print utf8_encode($texte[0]->TEXTE);
+        ?>
+    
 </div>

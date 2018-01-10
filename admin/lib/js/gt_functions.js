@@ -19,7 +19,7 @@ $('#id_gt_type_gateau').change(function(){
 });
 
 //supprimer le boutoun choisir
-$("#choix_type").remove();
+$("#choix_type").show();
 //Exercices
     $("#balise3").hide();
     $("#balise1").on(

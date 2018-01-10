@@ -1,10 +1,6 @@
 <?php
 require"./lib/php/verifier_connexion.php";
 ?>
-<div class="container">
-            <header>
-                <img src="images/barcelone.jpg" alt="Barca"/>
-
-            </header>
-        </div>
-<h2 class="adminTitre">Administration</h2>
+<br/><br/><br/><br/><br/><br/><div id="images">
+    <img src="../admin/images/messiadmin.png" alt="messi"/>
+</div>

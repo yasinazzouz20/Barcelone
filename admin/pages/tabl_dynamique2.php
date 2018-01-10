@@ -4,45 +4,48 @@ include '../include/config.php';
 $query = "SELECT * FROM equipe";
 $data = selectEmployees($query);
 
-if(isset($_GET['deleteid'])){
-    $id=$_GET['deleteid'];
-    
-        $delete="DELETE FROM equipe WHERE ID=".$id;
-        $deleteUser=updateEmployees($delete);
+if (isset($_GET['deleteid'])) {
+    $id = $_GET['deleteid'];
 
-        if($deleteUser!=0){
-            header("Location: index.php");
-        }else{
-            echo 'error in delete';
-        }    
-    
+    $delete = "DELETE FROM equipe WHERE ID=" . $id;
+    $deleteUser = updateEmployees($delete);
+
+    if ($deleteUser != 0) {
+        header("Location: index.php");
+    } else {
+        echo 'error in delete';
+    }
 }
-
-
 ?>
+<br />
+<div align="right">
+    <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg" onclick="document.location.href = 'http://localhost/Barcelone/index.php?page=add';">Ajouter</button>
+</div>
+<br /><br />
 
 <table>
     <tr>
-        <td>ID</td><td>NOM</td><td>AGE</td><td>Edit</td><td>Delete</td>
+        <td>ID&nbsp;&nbsp;&nbsp;</td><td>NOM&nbsp;&nbsp;&nbsp;</td><td>AGE&nbsp;&nbsp;&nbsp;</td><td>Edit&nbsp;&nbsp;&nbsp;</td><td>Delete</td>
     </tr>
 
     <?php
+    if (!empty($data)):
+        foreach ($data as $user):
+            ?>
+            <tr>
 
-    if(!empty($data)):
-    foreach ($data as $user):
-    ?>
-    <tr>
-        <td><?php echo $user['ID']; ?></td>
-        <td><?php echo $user['nom']; ?></td>
-        <td><?php echo $user['age']; ?></td>
-        <td><a href="../edit.php?id=<?php echo $user['ID']; ?>">Edit</a></td>
-        <td><a href="index.php?deleteid=<?php echo $user['ID']; ?>">Delete</a></td>
-    </tr>
-    <?php
+              <td id="blanc"><?php echo $user['ID']; ?></td>&nbsp;&nbsp;&nbsp;
+             <td id="blanc"><?php echo $user['nom']; ?></td>&nbsp;&nbsp;&nbsp;
+             <td id="blanc"><?php echo $user['age']; ?></td>&nbsp;&nbsp;&nbsp;
+            <td><a  href="../edit.php?id=<?php echo $user['ID']; ?>">Edit</a></td>&nbsp;&nbsp;&nbsp;
+            <td><a href="index.php?deleteid=<?php echo $user['ID']; ?>">Delete</a></td>&nbsp;&nbsp;&nbsp;
+        </tr>
+        
+        <?php
     endforeach;
-    else:
-        echo "<h4>Pas de joueurs trouves!</h4>";
-    endif;
-    ?>
+else:
+    echo "<h4>Pas de joueurs trouves!</h4>";
+endif;
+?>
 
 </table>

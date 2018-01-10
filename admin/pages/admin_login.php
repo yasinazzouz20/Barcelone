@@ -1,24 +1,20 @@
 <?php
+if (isset($_POST['submit_login'])) {
 
-if(isset($_POST['submit_login'])){
-    
-    $log=new AdminDB($cnx);
-    $admin=$log->isAdmin($_POST['login'],$_POST['password']);
-   // var_dump($admin);
-    if(is_null($admin)){
-        $message="<br/> Donn&eacute;es incorrectes";
-    }
-    else{
-        $_SESSION['admin']=1;
-        $message="Authentifié!";
+    $log = new AdminDB($cnx);
+    $admin = $log->isAdmin($_POST['login'], $_POST['password']);
+    // var_dump($admin);
+    if (is_null($admin)) {
+        $message = "<br/> Donn&eacute;es incorrectes";
+    } else {
+        $_SESSION['admin'] = 1;
+        $message = "Authentifié!";
         ?>
-<meta http-equiv="refresh": content="0;url=index.php?page=accueil_admin">
+        <meta http-equiv="refresh": content="0;url=index.php?page=accueil_admin">
         <?php
     }
-  
 }
-    
-        ?>
+?>
 
 
 
@@ -30,17 +26,20 @@ if(isset($_POST['submit_login'])){
             <div class="col-sm-offset-1 txt150 txtGras">Authentifiez-vous<br/><br/></div>
         </div>
         <div class="row">
-            <div class="col-sm-2 txtRouge txtGras">Login : </div>
+            <div class="col-sm-4 txtRouge txtGras">Login : </div>
             <div class="col-sm-4"><input type="text" id="login_" name="login" /></div><br/><br/>
         </div>
         <div class="row">
-            <div class="col-sm-2 txtRouge txtGras">Mot de passe :</div>
+            <div class="col-sm-4 txtRouge txtGras">Mot de passe :</div>
             <div class="col-sm-4"><input type="password" id="password_" name="password" /></div>
         </div>
         <div class="row">
             <div class="col-sm-4"><br/>
-                <input type="submit" name="submit_login" id="submit_login_" value="Login" />&nbsp;&nbsp;&nbsp;
-                <input type="reset" id="annuler" value="Annuler" />
+                <input type="submit" class="btn" name="submit_login" id="submit_login_" value="Login" />
+            </div>
+            <div class="col-sm-4"><br/>
+
+                <input type="reset" class="btn" id="annuler" value="Annuler" onclick="document.location.href = 'http://localhost/Barcelone/index.php?page=accueil';" class="pull-left" />
             </div>
         </div>            
     </form>
