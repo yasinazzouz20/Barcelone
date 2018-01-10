@@ -42,4 +42,8 @@ $info = new InfoClientDB($cnx);
 </div>
 </br>
 </br>
+<div class="row">
+<div class="col-sm-10">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4RDvQZ_LGw0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+</div>

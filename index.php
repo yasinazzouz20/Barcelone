@@ -14,44 +14,42 @@ session_start();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../Barcelone/admin/lib/css/Style.css"></link> 
-        <script src="admin/lib/js/dist/jquery.validate.js"></script>
-        <script src="admin/lib/js/gt_functions.js"></script>
-        <script src="admin/lib/js/gt_functionsVal.js"></script>
-        <script src="admin/lib/js/gt_functionsAjax.js"></script>
+        <script src="../Barcelone/admin/lib/js/dist/jquery.validate.js"></script>
+        <script src="../Barcelone/admin/lib/js/gt_functions.js"></script>
+        <script src="../Barcelone/admin/lib/js/gt_functionsVal.js"></script>
+        <script src="../Barcelone/admin/lib/js/gt_functionsAjax.js"></script>
 
 
 
     </head>
-    <body> 
-       
+      <body> 
+
+
         
         <div class="container">
-            <header>
-                <img src="images/barcelone.jpg" alt="Barca"/>
+            <div class="row">
+                <nav class="navbar navbar-light">
 
+                    <?php
+                    if (file_exists("./lib/php/b_menu.php")) {
 
-            </header>
+                        include ("./lib/php/b_menu.php");
+                    }
+                    ?>  
 
+                </nav>
+            </div>
 
         </div>
         <div class="container">
 
             <div class="row">
-                <div class="col-sm-2">
 
-                    <nav>
-                        <?php
-                        if (file_exists("./lib/php/b_menu.php")) {
 
-                            include ("./lib/php/b_menu.php");
-                        }
-                        ?>  
-                    </nav>
-                </div>
+
+
                 <div class="col-sm-10">
-                    <div class="row">
-                        <div class="col-sm-11"> <a href="./admin/index.php" class="float-right">Administration</a></div>
-                    </div>
+
                     <section>
 
                         <?php

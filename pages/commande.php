@@ -3,7 +3,7 @@
 //si aucun id de gateau dans url
 if (!isset($_GET['id']) && !isset($_SESSION['id_commande'])) {
     ?>
-    <p><h4 id="txtw">Pour commander, Rendez-sur notre page Catalogue <input type="button" class="btn" id="ici" value="ICI" onclick="document.location.href = 'http://localhost/barcelone/index.php?page=tiquet';" /></h4></p>
+    <p><h4 id="txtw">Pour commander, dirigez-vous sur notre page ticket ou cliquer : <input type="button" class="btn" id="ici" value="ICI" onclick="document.location.href = 'http://localhost/barcelone/index.php?page=tiquet';" /></h4></p>
     <?php
 } else if (isset($_GET['id'])) {
     //on vient de la page produit

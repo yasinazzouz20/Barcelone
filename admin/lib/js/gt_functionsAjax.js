@@ -36,7 +36,7 @@ $(document).ready(function () {
                     type: 'GET',
                     data: parametre,
                     dataType: "text",
-                    url: './lib/php/ajax/AjaxUpdateProduit.php',
+                    url: "./lib/php/ajax/AjaxUpdateGateau.php",
                     success: function (data) {
                         console.log("success");
                     }

@@ -7,7 +7,7 @@ class Vue_barcelone {
     
     
     
-
+// tous les joueurs
     function getVue_joueurs(){
          try {
             $query = "SELECT * FROM EQUIPE order by nom,age";
