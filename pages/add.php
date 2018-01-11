@@ -4,12 +4,12 @@ if (isset($_GET['commander'])) {
     //ecriture
     //var_dump($_GET);
     extract($_GET, EXTR_OVERWRITE);
-    if (empty($ID) || empty($nom) || empty($age) || empty($image)) {
-        
+          //  if (empty($ID) || empty($nom) || empty($age) || empty($image)) {}
+
         $client = new JoueurDB($cnx);
         $client->addJoueur($_GET);
         //var_dump($_GET);
-    }
+    
     
 }
 ?>
